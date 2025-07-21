@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll('.contact-card');
+  // Fade in cards when in viewport
+  const cards = document.querySelectorAll('.cards-section .card');
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -13,12 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach(card => observer.observe(card));
 
-  // Fade in hero content on load
-  const heroContent = document.querySelector('.contact-hero .hero-content');
+  // Make hero content fade in immediately
+  const heroContent = document.querySelector('.about-hero .hero-content');
   if (heroContent) {
     heroContent.classList.add('visible');
   }
 
+  // Hamburger menu toggle
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
 
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.classList.toggle('active');
   });
 
+  // Sticky header on scroll
   window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     header.classList.toggle('scrolled', window.scrollY > 50);

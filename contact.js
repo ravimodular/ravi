@@ -7,13 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         entry.target.classList.add('visible');
       }
     });
-  }, {
-    threshold: 0.3
-  });
+  }, { threshold: 0.3 });
 
   cards.forEach(card => observer.observe(card));
 
-  // Fade in hero content on load
+  // Fade in hero content (triggers hero-title + hero-subtitle animation)
   const heroContent = document.querySelector('.contact-hero .hero-content');
   if (heroContent) {
     heroContent.classList.add('visible');

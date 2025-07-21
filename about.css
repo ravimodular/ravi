@@ -30,13 +30,13 @@ h1, h2, h3, h4 {
   letter-spacing: 0.5px;
 }
 
-/* Typography Scale */
+/* Typography */
 h1 { font-size: 4.5rem; }
 h2 { font-size: 2.5rem; }
 h3 { font-size: 1.8rem; }
 p { font-size: 1.1rem; line-height: 1.8; }
 
-/* Header & Navigation */
+/* Header */
 .header {
   position: fixed;
   top: 0; left: 0;
@@ -63,7 +63,6 @@ p { font-size: 1.1rem; line-height: 1.8; }
 
 .logo-container {
   width: 140px;
-  transition: all 0.3s ease;
 }
 
 .logo {
@@ -153,12 +152,12 @@ p { font-size: 1.1rem; line-height: 1.8; }
 
 .about-hero .hero-content {
   max-width: 900px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards 0.5s;
 }
 
 .hero-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards 0.5s;
   font-size: 4.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -166,6 +165,9 @@ p { font-size: 1.1rem; line-height: 1.8; }
 }
 
 .hero-subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards 1.2s;
   font-size: 1.3rem;
   font-weight: 300;
   max-width: 700px;
@@ -287,25 +289,6 @@ p { font-size: 1.1rem; line-height: 1.8; }
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.cards-section .card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.cards-section .card ul li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-}
-
-.cards-section .card ul li .checkmark {
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-size: 1.2rem;
-}
-
-
 /* Footer */
 .footer {
   background: var(--black);
@@ -341,24 +324,20 @@ p { font-size: 1.1rem; line-height: 1.8; }
 /* Responsive */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-
   .nav-links {
     position: fixed;
     top: 85px;
     left: -100%;
     width: 100%;
     height: calc(100vh - 85px);
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0,0,0,0.95);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: left 0.5s ease;
   }
-
   .nav-links.active { left: 0; }
-
   .nav-link { margin: 20px 0; font-size: 1.1rem; }
-
   .hero-title { font-size: 3rem; }
   .hero-subtitle { font-size: 1.1rem; }
   .cards-section .card { padding: 40px 25px; }

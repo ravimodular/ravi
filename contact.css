@@ -246,7 +246,7 @@ h1, h2, h3, h4 {
   border-bottom: 3px solid transparent;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 1s ease; /* match homepage */
+  transition: all 1s ease;
 }
 
 .contact-card.visible {
@@ -307,4 +307,24 @@ h1, h2, h3, h4 {
   .contact-card { padding: 40px 25px; }
   .contact-card h3 { font-size: 1.5rem; }
   .contact-card p { font-size: 1rem; }
+}
+
+/* Match homepage hero title & subtitle responsiveness */
+@media (max-width: 1200px) {
+  .hero-title { font-size: 4rem; }
+}
+
+@media (max-width: 992px) {
+  .hero-title { font-size: 3.5rem; }
+  .hero-subtitle { font-size: 1.3rem; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.8rem; }
+  .hero-subtitle { font-size: 1.1rem; }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 2.3rem; }
+  .hero-subtitle { font-size: 1rem; }
 }

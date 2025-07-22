@@ -76,21 +76,26 @@
             </div>
           </div>
 
-          <div class="contact-card">
-            <h3>Follow Us</h3>
-            <div class="contact-item">
-              <i class="fab fa-facebook-f"></i>
-              <a href="fb://page/100083231412583"  onclick="window.open('https://www.facebook.com/ravimodularcabinet', '_blank'); return false;">
-  Facebook</a>
-            </div>
-            <div class="contact-item">
-              <i class="fab fa-instagram"></i>
-              <a href="instagram://user?username=ravimodular0121"
-   onclick="window.open('https://www.instagram.com/ravimodular0121', '_blank'); return false;">
-  Instagram
-</a>
-            </div>
-          </div>
+<div class="contact-card">
+  <h3>Follow Us</h3>
+  <div class="contact-item">
+    <i class="fab fa-facebook-f"></i>
+    <a href="#" onclick="showSocialChoice('facebook'); return false;">Facebook</a>
+  </div>
+  <div class="contact-item">
+    <i class="fab fa-instagram"></i>
+    <a href="#" onclick="showSocialChoice('instagram'); return false;">Instagram</a>
+  </div>
+</div>
+
+<!-- Social choice popup -->
+<div id="social-choice" class="social-choice">
+  <div class="social-choice-content">
+    <p>Open in App or View on Web?</p>
+    <button id="open-app">Open in App</button>
+    <button id="open-web">View on Web</button>
+  </div>
+</div>
 
         </div>
       </div>

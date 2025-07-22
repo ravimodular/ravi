@@ -286,6 +286,42 @@ h1, h2, h3, h4 {
   letter-spacing: 0.5px;
 }
 
+/* Social choice popup */
+.social-choice {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 9999;
+  text-align: center;
+}
+
+.social-choice p {
+  margin-bottom: 10px;
+}
+
+.social-choice button {
+  margin: 0 8px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--primary);
+  color: var(--black);
+  font-weight: 500;
+}
+
+.social-choice button:hover {
+  opacity: 0.85;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .hamburger { display: flex; }

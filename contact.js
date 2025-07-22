@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach(card => observer.observe(card));
 
-  // Fade in hero content (triggers hero-title + hero-subtitle animation)
   const heroContent = document.querySelector('.contact-hero .hero-content');
   if (heroContent) {
     heroContent.classList.add('visible');
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // ✅ add this for the X animation
   });
 
   window.addEventListener('scroll', () => {

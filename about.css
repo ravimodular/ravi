@@ -334,9 +334,15 @@ p { font-size: 1.1rem; line-height: 1.8; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: left 0.5s ease;
+    transition: left 0.5s ease, background 0.3s ease;
   }
-  .nav-links.active { left: 0; }
+  .nav-links.active {
+    left: 0;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  .nav-links.active .nav-link {
+    color: var(--black);
+  }
   .nav-link { margin: 20px 0; font-size: 1.1rem; }
   .hero-title { font-size: 3rem; }
   .hero-subtitle { font-size: 1.1rem; }

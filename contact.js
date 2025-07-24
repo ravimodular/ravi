@@ -54,28 +54,26 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-let selectedPlatform = '';
+  function openFacebook() {
+    const fbAppUrl = "fb://page/100083231412583";
+    const fbWebUrl = "https://www.facebook.com/ravimodularcabinet";
 
-function showSocialChoice(platform) {
-  selectedPlatform = platform;
-  document.getElementById('social-choice').style.display = 'block';
-}
+    // Try app link first
+    window.location = fbAppUrl;
 
-document.getElementById('open-app').onclick = function() {
-  if (selectedPlatform === 'facebook') {
-    window.location.href = 'fb://page/100083231412583';
-  } else if (selectedPlatform === 'instagram') {
-    window.location.href = 'instagram://user?username=ravimodular0121';
+    // If app fails, fallback after short delay
+    setTimeout(() => {
+      window.open(fbWebUrl, '_blank');
+    }, 500);
   }
-  document.getElementById('social-choice').style.display = 'none';
-};
 
-document.getElementById('open-web').onclick = function() {
-  if (selectedPlatform === 'facebook') {
-    window.open('https://www.facebook.com/ravimodularcabinet', '_blank');
-  } else if (selectedPlatform === 'instagram') {
-    window.open('https://www.instagram.com/ravimodular0121', '_blank');
+  function openInstagram() {
+    const igAppUrl = "instagram://user?username=ravimodular0121";
+    const igWebUrl = "https://www.instagram.com/ravimodular0121";
+
+    window.location = igAppUrl;
+
+    setTimeout(() => {
+      window.open(igWebUrl, '_blank');
+    }, 500);
   }
-  document.getElementById('social-choice').style.display = 'none';
-};
-

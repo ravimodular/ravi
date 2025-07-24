@@ -36,3 +36,28 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', animateOnScroll);
   animateOnScroll(); // Trigger once on page load
 });
+
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+// Disable some F12 / Ctrl+Shift+I shortcuts
+document.addEventListener('keydown', function(e) {
+  // F12
+  if (e.keyCode === 123) {
+    e.preventDefault();
+  }
+  // Ctrl+Shift+I
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+    e.preventDefault();
+  }
+  // Ctrl+Shift+J
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+    e.preventDefault();
+  }
+  // Ctrl+U (view source)
+  if (e.ctrlKey && e.keyCode === 85) {
+    e.preventDefault();
+  }
+});

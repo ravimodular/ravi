@@ -17,7 +17,7 @@
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">HOME</a></li>
         <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-        <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+        <li><a href="projects.html" class="nav-link">PROJECTS</a></li>
         <li><a href="contact.html" class="nav-link active">CONTACT US</a></li>
       </ul>
       <div class="hamburger">
@@ -44,21 +44,21 @@
         <h2 class="section-title">Connect With Us</h2>
         <div class="contact-grid">
 
-          <div class="contact-card">
-            <h3>Email Us</h3>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>ravimodularcabinet@gmail.com</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>ramosdominic.rmc@gmail.com</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>ziaramos.rmc@gmail.com</span>
-            </div>
-          </div>
+<div class="contact-card">
+  <h3>Email Us</h3>
+  <div class="contact-item">
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:ravimodularcabinet@gmail.com">ravimodularcabinet@gmail.com</a>
+  </div>
+  <div class="contact-item">
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:ramosdominic.rmc@gmail.com">ramosdominic.rmc@gmail.com</a>
+  </div>
+  <div class="contact-item">
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:ziaramos.rmc@gmail.com">ziaramos.rmc@gmail.com</a>
+  </div>
+</div>
 
           <div class="contact-card">
             <h3>Call or Text</h3>
@@ -80,19 +80,28 @@
   <h3>Follow Us</h3>
   <div class="contact-item">
     <i class="fab fa-facebook-f"></i>
-    <a href="#" onclick="openFacebook(); return false;">Facebook</a>
+    <a href="#" onclick="showToast('facebook'); return false;">Facebook</a>
   </div>
   <div class="contact-item">
     <i class="fab fa-instagram"></i>
-    <a href="#" onclick="openInstagram(); return false;">Instagram</a>
+    <a href="#" onclick="showToast('instagram'); return false;">Instagram</a>
   </div>
 </div>
 
+<div id="toast" class="toast">
+  <p id="toast-message"></p>
+  <div class="toast-buttons">
+    <button id="toast-yes">Open in App</button>
+    <button id="toast-no">Open in Browser</button>
+  </div>
+</div>
 
         </div>
       </div>
     </section>
   </main>
+
+
 
   <footer class="footer">
     <div class="footer-bottom">
@@ -101,5 +110,45 @@
   </footer>
 
   <script src="contact.js"></script>
+
+  <script>
+  let currentPlatform = '';
+
+  function showToast(platform) {
+    currentPlatform = platform;
+    const toast = document.getElementById('toast');
+    const message = document.getElementById('toast-message');
+    message.textContent = `Open ${platform.charAt(0).toUpperCase() + platform.slice(1)} in app?`;
+
+    toast.classList.add('show');
+
+    // Auto-hide after 6 seconds
+    setTimeout(hideToast, 6000);
+  }
+
+  function hideToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.remove('show');
+  }
+
+  document.getElementById('toast-yes').onclick = function() {
+    if (currentPlatform === 'facebook') {
+      window.location = "fb://page/100083231412583";
+    } else {
+      window.location = "instagram://user?username=ravimodular0121";
+    }
+    hideToast();
+  };
+
+  document.getElementById('toast-no').onclick = function() {
+    if (currentPlatform === 'facebook') {
+      window.open("https://www.facebook.com/ravimodularcabinet", "_blank");
+    } else {
+      window.open("https://www.instagram.com/ravimodular0121", "_blank");
+    }
+    hideToast();
+  };
+</script>
+
 </body>
 </html>

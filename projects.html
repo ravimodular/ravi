@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Ravi Modular Cabinet</title>
+  <link rel="stylesheet" href="projects.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo-container">
+        <a href="index.html"><img src="ravi_logo.png" alt="Ravi Modular Cabinet Logo" class="logo"></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">HOME</a></li>
+        <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+        <li><a href="projects.html" class="nav-link active">PROJECTS</a></li>
+        <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero projects-hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Our Projects</h1>
+        <p class="hero-subtitle">Explore our completed modular cabinet installations</p>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search projects by location...">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <div class="section-container">
+        <h2 class="section-title">Our Portfolio</h2>
+        <div class="features-grid projects-grid" id="projectsContainer">
+          <!-- Project cards will be dynamically inserted here -->
+        </div>
+        <div id="pagination" class="pagination"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2025 Ravi Modular Cabinet. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script src="projects.js"></script>
+</body>
+</html>

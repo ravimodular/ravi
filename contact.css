@@ -286,6 +286,72 @@ h1, h2, h3, h4 {
   letter-spacing: 0.5px;
 }
 
+/* ================================
+   Fancy Toast Styles
+   ================================ */
+.toast {
+  position: fixed;
+  bottom: -200px; /* Hidden initially */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  z-index: 9999;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.toast.show {
+  bottom: 40px;
+  opacity: 1;
+}
+
+.toast p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.toast-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toast-buttons button {
+  background: var(--primary);
+  border: none;
+  color: #222;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.toast-buttons button:hover {
+  background: var(--primary-dark);
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .toast {
+    padding: 15px 20px;
+    font-size: 0.95rem;
+  }
+  .toast-buttons button {
+    flex: 1 1 45%;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hamburger { display: flex; }

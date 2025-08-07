@@ -77,3 +77,6 @@ document.addEventListener('keydown', function(e) {
       window.open(igWebUrl, '_blank');
     }, 500);
   }
+
+  
+  

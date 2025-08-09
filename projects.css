@@ -401,7 +401,9 @@ p { font-size: 1.1rem; line-height: 1.8; }
   font-size: 1.2rem;
 }
 
-/* Image Modal */
+/* ------------------------------
+   Image Modal - UPDATED
+------------------------------ */
 .modal {
   display: none;
   position: fixed;
@@ -415,25 +417,65 @@ p { font-size: 1.1rem; line-height: 1.8; }
 }
 
 .modal-content {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: auto;
+  display: block;
 }
 
 .close-modal {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 30px;
   color: var(--white);
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
-  z-index: 10;
+  z-index: 2010;
+  transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+  transform: scale(1.1);
+}
+
+/* Modal Navigation - UPDATED */
+.modal-prev, 
+.modal-next {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  user-select: none;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  z-index: 2010;
+}
+
+.modal-prev:hover, 
+.modal-next:hover {
+  background-color: rgba(0,0,0,0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev {
+  left: 20px;
+}
+
+.modal-next {
+  right: 20px;
 }
 
 /* Pagination */
@@ -525,6 +567,10 @@ p { font-size: 1.1rem; line-height: 1.8; }
 ------------------------------ */
 @media (max-width: 1200px) {
   .hero-title { font-size: 4rem; }
+  .modal-content {
+    max-width: 85vw;
+    max-height: 85vh;
+  }
 }
 
 @media (max-width: 992px) {
@@ -533,6 +579,10 @@ p { font-size: 1.1rem; line-height: 1.8; }
   .hero-title { font-size: 3.5rem; }
   .hero-subtitle { font-size: 1.3rem; }
   .features-grid { gap: 30px; }
+  .modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
 }
 
 @media (max-width: 768px) {
@@ -566,15 +616,18 @@ p { font-size: 1.1rem; line-height: 1.8; }
   .feature-card { padding: 40px 25px; }
   .feature-card h3 { font-size: 1.5rem; }
   .feature-card p { font-size: 1rem; }
-  .gallery {
-    height: 200px;
+  .gallery { height: 200px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  
+  /* Modal adjustments */
+  .modal-prev, 
+  .modal-next {
+    padding: 12px;
+    font-size: 1.5rem;
   }
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  .modal-content {
-    max-width: 95%;
-  }
+  .modal-prev { left: 10px; }
+  .modal-next { right: 10px; }
+  .close-modal { font-size: 1.8rem; right: 20px; }
 }
 
 @media (max-width: 576px) {
@@ -587,11 +640,37 @@ p { font-size: 1.1rem; line-height: 1.8; }
   .cta-button { padding: 12px 30px; font-size: 0.9rem; }
   .features-grid { grid-template-columns: 1fr; }
   .section-title::after { width: 80px; }
-  .gallery {
-    height: 180px;
+  .gallery { height: 180px; }
+  .pagination { flex-wrap: wrap; }
+  
+  /* Modal adjustments */
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
   }
-  .pagination {
-    flex-wrap: wrap;
+  .modal-prev, 
+  .modal-next {
+    padding: 8px;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+  }
+  .modal-prev { left: 5px; }
+  .modal-next { right: 5px; }
+  .close-modal {
+    font-size: 1.5rem;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal-prev, 
+  .modal-next {
+    padding: 6px;
+    font-size: 1rem;
+    width: 26px;
+    height: 26px;
   }
 }
 
@@ -651,9 +730,24 @@ p { font-size: 1.1rem; line-height: 1.8; }
   color: var(--black);
 }
 
-
 .search-result-item:last-child {
   border-bottom: none;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  display: none;
+  user-select: none;
+}
+
+.clear-btn:hover {
+  color: #333;
 }
 
 /* ------------------------------

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // ----------------------------
   // Mobile navigation
   // ----------------------------
@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelector('.nav-links');
   const navLinkItems = document.querySelectorAll('.nav-link');
 
-  hamburger.addEventListener('click', function() {
+  hamburger.addEventListener('click', function () {
     this.classList.toggle('active');
     navLinks.classList.toggle('active');
   });
 
   navLinkItems.forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
       hamburger.classList.remove('active');
       navLinks.classList.remove('active');
     });
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ----------------------------
   // Header scroll effect
   // ----------------------------
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     const header = document.querySelector('.header');
     header.classList.toggle('scrolled', window.scrollY > 50);
   });
@@ -30,34 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Project data
   // ----------------------------
   const projects = [
-    {
-      title: "Mexico Pampanga",
-      images: ["mp/mexico_p1.jpg", "mp/mexico_p2.jpg", "mp/mexico_p3.jpg"]
-    },
-    {
-      title: "Sampaloc Manila",
-      images: ["sm/sm_1.jpg", "sm/sm_2.jpg", "sm/sm_3.jpg"]
-    },
-    {
-      title: "Makati City",
-      images: ["mc/mc_1.jpg", "mc/mc_2.jpg", "mc/mc_3.jpg", "mc/mc_4.jpg", "mc/mc_5.jpg", "mc/mc_8.jpg"]
-    },
-    {
-      title: "Lindenwood Residences",
-      images: ["lr/lr_1.jpeg", "lr/lr_2.jpeg", "lr/lr_3.jpeg", "lr/lr_4.jpeg"]
-    },
-    {
-      title: "Vista Real QC",
-      images: ["vrqc/vrqc_1.jpg", "vrqc/vrqc_2.jpg", "vrqc/vrqc_3.jpg", "vrqc/vrqc_4.jpg", "vrqc/vrqc_5.jpg", "vrqc/vrqc_6.jpg", "vrqc/vrqc_7.jpg"]
-    },
-    {
-      title: "Project 8 QC",
-      images: ["p8qc/p8qc_1.jpg", "p8qc/p8qc_2.jpg", "p8qc/p8qc_3.jpg", "p8qc/p8qc_4.jpg", "p8qc/p8qc_5.jpg", "p8qc/p8qc_6.jpg"]
-    },
-    {
-      title: "BGC",
-      images: ["bgc/bgc_1.jpg", "bgc/bgc_2.jpg", "bgc/bgc_3.jpg", "bgc/bgc_4.jpg", "bgc/bgc_5.jpg", "bgc/bgc_6.jpg", "bgc/bgc_7.jpg", "bgc/bgc_8.jpg"]
-    }
+    { title: "Mexico Pampanga", images: ["mp/mexico_p1.jpg", "mp/mexico_p2.jpg", "mp/mexico_p3.jpg"] },
+    { title: "Sampaloc Manila", images: ["sm/sm_1.jpg", "sm/sm_2.jpg", "sm/sm_3.jpg"] },
+    { title: "Sampaloc Manila 2", images: ["sm_2/sm_1.jpg", "sm_2/sm_2.jpg", "sm_2/sm_3.jpg", "sm_2/sm_4.jpg", "sm_2/sm_5.jpg", "sm_2/sm_6.jpg", "sm_2/sm_7.jpg"] },
+    { title: "Makati City", images: ["mc/mc_1.jpg", "mc/mc_2.jpg", "mc/mc_3.jpg", "mc/mc_4.jpg", "mc/mc_5.jpg", "mc/mc_8.jpg"] },
+    { title: "Lindenwood Residences", images: ["lr/lr_1.jpeg", "lr/lr_2.jpeg", "lr/lr_3.jpeg", "lr/lr_4.jpeg"] },
+    { title: "Vista Real QC", images: ["vrqc/vrqc_1.jpg", "vrqc/vrqc_2.jpg", "vrqc/vrqc_3.jpg", "vrqc/vrqc_4.jpg", "vrqc/vrqc_5.jpg", "vrqc/vrqc_6.jpg", "vrqc/vrqc_7.jpg"] },
+    { title: "Project 8 QC", images: ["p8qc/p8qc_1.jpg", "p8qc/p8qc_2.jpg", "p8qc/p8qc_3.jpg", "p8qc/p8qc_4.jpg", "p8qc/p8qc_5.jpg", "p8qc/p8qc_6.jpg", "p8qc/p8qc_7.jpg", "p8qc/p8qc_8.jpg"] },
+    { title: "BGC", images: ["bgc/bgc_1.jpg", "bgc/bgc_2.jpg", "bgc/bgc_3.jpg", "bgc/bgc_4.jpg", "bgc/bgc_5.jpg", "bgc/bgc_6.jpg", "bgc/bgc_7.jpg", "bgc/bgc_8.jpg"] },
+    { title: "Quezon City, K Brosas", images: ["qc_kbrosas/qck_1.jpg", "qc_kbrosas/qck_2.jpg", "qc_kbrosas/qck_3.jpg"]}
   ];
 
   // ----------------------------
@@ -67,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const pagination = document.getElementById('pagination');
   const searchInput = document.getElementById('searchInput');
   const searchResults = document.getElementById('searchResults');
+  const clearBtn = document.getElementById('clearSearch');
 
   // ----------------------------
   // Pagination variables
@@ -121,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
       projectsContainer.appendChild(projectCard);
     });
 
-    setupGalleryNavigation(); // Reinitialize for new elements
+    setupGalleryNavigation();
   }
 
   // ----------------------------
@@ -169,42 +151,79 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ----------------------------
-  // Image modal
+  // Image modal with left/right navigation
   // ----------------------------
   function setupImageModal() {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const closeModal = document.querySelector('.close-modal');
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
 
-    document.addEventListener('click', function(e) {
+    let currentProjectImages = [];
+    let currentImageIndex = 0;
+
+    // Open modal
+    document.addEventListener('click', function (e) {
       if (e.target.matches('.gallery-track img')) {
+        const gallery = e.target.closest('.gallery-track');
+        currentProjectImages = Array.from(gallery.querySelectorAll('img')).map(img => img.src);
+        currentImageIndex = currentProjectImages.indexOf(e.target.src);
+
         modal.style.display = "block";
-        modalImg.src = e.target.src;
+        modalImg.src = currentProjectImages[currentImageIndex];
       }
     });
 
+    // Close modal
     closeModal.addEventListener('click', () => modal.style.display = "none");
 
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
+      if (e.target === modal) modal.style.display = "none";
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === "Escape" && modal.style.display === "block") {
         modal.style.display = "none";
       }
     });
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === "Escape" && modal.style.display === "block") {
-        modal.style.display = "none";
+    // Prev
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentImageIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+      modalImg.src = currentProjectImages[currentImageIndex];
+    });
+
+    // Next
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
+      modalImg.src = currentProjectImages[currentImageIndex];
+    });
+
+    // Keyboard arrows
+    document.addEventListener('keydown', function (e) {
+      if (modal.style.display === "block") {
+        if (e.key === "ArrowRight") {
+          currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
+          modalImg.src = currentProjectImages[currentImageIndex];
+        } else if (e.key === "ArrowLeft") {
+          currentImageIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+          modalImg.src = currentProjectImages[currentImageIndex];
+        }
       }
     });
   }
 
   // ----------------------------
-  // Search functionality
+  // Search functionality with clear button
   // ----------------------------
   function setupSearch() {
     if (!searchInput) return;
 
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
+      clearBtn.style.display = this.value.length > 0 ? 'block' : 'none';
       const searchTerm = this.value.toLowerCase();
       searchResults.innerHTML = '';
 
@@ -226,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const resultItem = document.createElement('div');
           resultItem.className = 'search-result-item';
           resultItem.textContent = project.title;
-          resultItem.addEventListener('click', function() {
+          resultItem.addEventListener('click', function () {
             searchInput.value = project.title;
             searchResults.classList.remove('active');
             filterProjects(project.title);
@@ -243,7 +262,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    document.addEventListener('click', function(e) {
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      searchResults.classList.remove('active');
+      filteredProjects = [...projects];
+      currentPage = 1;
+      renderProjects();
+      renderPagination();
+    });
+
+    document.addEventListener('click', function (e) {
       if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
         searchResults.classList.remove('active');
       }
@@ -256,10 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
       currentPage = 1;
       renderProjects();
       renderPagination();
-
-      document.querySelector('.features-section').scrollIntoView({
-        behavior: 'smooth'
-      });
+      document.querySelector('.features-section').scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -269,7 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function renderPagination() {
     pagination.innerHTML = '';
     const pageCount = Math.ceil(filteredProjects.length / projectsPerPage);
-
     if (pageCount <= 1) return;
 
     const prevBtn = document.createElement('button');
@@ -279,10 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPage--;
         renderProjects();
         renderPagination();
-        window.scrollTo({
-          top: projectsContainer.offsetTop - 100,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: projectsContainer.offsetTop - 100, behavior: 'smooth' });
       }
     });
     pagination.appendChild(prevBtn);
@@ -290,17 +312,12 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 1; i <= pageCount; i++) {
       const pageBtn = document.createElement('button');
       pageBtn.textContent = i;
-      if (i === currentPage) {
-        pageBtn.classList.add('active');
-      }
+      if (i === currentPage) pageBtn.classList.add('active');
       pageBtn.addEventListener('click', () => {
         currentPage = i;
         renderProjects();
         renderPagination();
-        window.scrollTo({
-          top: projectsContainer.offsetTop - 100,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: projectsContainer.offsetTop - 100, behavior: 'smooth' });
       });
       pagination.appendChild(pageBtn);
     }
@@ -312,10 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPage++;
         renderProjects();
         renderPagination();
-        window.scrollTo({
-          top: projectsContainer.offsetTop - 100,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: projectsContainer.offsetTop - 100, behavior: 'smooth' });
       }
     });
     pagination.appendChild(nextBtn);
@@ -347,10 +361,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Block right-click and dev tools
 // ----------------------------
 document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode === 123 || // F12
-      (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
-      (e.ctrlKey && e.keyCode === 85)) { // Ctrl+U
+document.addEventListener('keydown', function (e) {
+  if (e.keyCode === 123 ||
+    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+    (e.ctrlKey && e.keyCode === 85)) {
     e.preventDefault();
   }
 });

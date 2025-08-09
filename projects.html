@@ -35,6 +35,7 @@
         <p class="hero-subtitle">Explore our completed modular cabinet installations</p>
         <div class="search-container">
           <input type="text" id="searchInput" placeholder="Search projects by location...">
+          <span id="clearSearch" class="clear-btn">&times;</span>
           <div class="search-results" id="searchResults"></div>
         </div>
       </div>
@@ -60,11 +61,19 @@
     </div>
   </footer>
 
-  <!-- Image Modal -->
+  <!-- Image Modal 
   <div id="imageModal" class="modal">
     <span class="close-modal">&times;</span>
     <img class="modal-content" id="modalImage">
-  </div>
+  </div>-->
+  <!-- Image Modal -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <span class="modal-prev">&#10094;</span>
+  <span class="modal-next">&#10095;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
 
   <script src="projects.js"></script>
 </body>

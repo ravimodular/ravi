@@ -36,9 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
     { title: "Makati City", images: ["mc/mc_1.jpg", "mc/mc_2.jpg", "mc/mc_3.jpg", "mc/mc_4.jpg", "mc/mc_5.jpg", "mc/mc_8.jpg"] },
     { title: "Lindenwood Residences", images: ["lr/lr_1.jpeg", "lr/lr_2.jpeg", "lr/lr_3.jpeg", "lr/lr_4.jpeg"] },
     { title: "Vista Real QC", images: ["vrqc/vrqc_1.jpg", "vrqc/vrqc_2.jpg", "vrqc/vrqc_3.jpg", "vrqc/vrqc_4.jpg", "vrqc/vrqc_5.jpg", "vrqc/vrqc_6.jpg", "vrqc/vrqc_7.jpg"] },
-    { title: "Project 8 QC", images: ["p8qc/p8qc_1.jpg", "p8qc/p8qc_2.jpg", "p8qc/p8qc_3.jpg", "p8qc/p8qc_4.jpg", "p8qc/p8qc_5.jpg", "p8qc/p8qc_6.jpg", "p8qc/p8qc_7.jpg", "p8qc/p8qc_8.jpg"] },
+    { title: "Project 8 QC", images: ["p8qc/p8qc_1.jpg", "p8qc/p8qc_2.jpg", "p8qc/p8qc_3.jpg", "p8qc/p8qc_4.jpg", "p8qc/p8qc_5.jpg", "p8qc/p8qc_6.jpg", "p8qc/p8qc_7.jpg", "p8qc/p8qc_8.jpg","p8qc/p8qc_9.jpg","p8qc/p8qc_10.jpg"] },
     { title: "BGC", images: ["bgc/bgc_1.jpg", "bgc/bgc_2.jpg", "bgc/bgc_3.jpg", "bgc/bgc_4.jpg", "bgc/bgc_5.jpg", "bgc/bgc_6.jpg", "bgc/bgc_7.jpg", "bgc/bgc_8.jpg"] },
-    { title: "Quezon City, K Brosas", images: ["qc_kbrosas/qck_1.jpg", "qc_kbrosas/qck_2.jpg", "qc_kbrosas/qck_3.jpg"]}
+    { title: "Quezon City, K Brosas", images: ["qc_kbrosas/qck_1.jpg", "qc_kbrosas/qck_2.jpg", "qc_kbrosas/qck_3.jpg"]},
+    { title: "Oro Vista Royale, Antipolo City", images: ["antip/antip_1.jpg", "antip/antip_2.jpg", "antip/antip_3.jpg", "antip/antip_4.jpg"]},
+    { title: "Casa Mithi Resort, Pampanga", images: ["cm/cm_1.jpg", "cm/cm_2.jpg", "cm/cm_3.jpg", "cm/cm_4.jpg", "cm/cm_5.jpg", "cm/cm_6.jpg","cm/cm_7.jpg", "cm/cm_8.jpg"]}  
   ];
 
   // ----------------------------
